@@ -48,8 +48,8 @@ int Detect_Rain_status()							// Restituisce: 0 = Normal, 1 = High Density, 2 =
     if ((Position = EXEorig.find(mod2x_traod_p3_p4)) != std::string::npos || (Position = EXEorig.find(mod2x_traod)) != std::string::npos)
         return 1;
     if ((Position = EXEorig.find(mod4x_traod_p3_p4)) != std::string::npos || (Position = EXEorig.find(mod4x_traod)) != std::string::npos)
-        return 2;
-    return -1;*/
+        return 2;*/
+    return -1;
 }
 
 
