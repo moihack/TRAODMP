@@ -22,7 +22,7 @@ void gAnimPlayFPS_write()
 	cout << "\n\n -------------------------------------------------   gAnimPlayFPS   --------------------------------------------------\n\n";
 	Ask_value("", 1, 150, &value, true);			// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -46,7 +46,7 @@ void playTriggerDamageEffectSize_write()
 	cout << "\n\n ------------------------------------------   playTriggerDamageEffectSize   ------------------------------------------\n\n";
 	Ask_value("", 0, 40, &value, true);				// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -70,7 +70,7 @@ void g_physics_G_write()
 	cout << "\n\n --------------------------------------------------   g_physics_G   --------------------------------------------------\n\n";
 	Ask_value("", 54, 540000, &value, true);		// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset1);
 	ChangeSTRINGValue(temp, offset2);
 	ChangeSTRINGValue(temp, offset3);
@@ -96,7 +96,7 @@ void gcamMaximumCameraDistance_write()
 	cout << "\n\n -------------------------------------------   gcamMaximumCameraDistance   -------------------------------------------\n\n";
 	Ask_value("", 300, 12800, &value, true);		// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -120,7 +120,7 @@ void gCamera_CornerShoot_ViewDistance_write()
 	cout << "\n\n ----------------------------------------   gCamera_CornerShoot_ViewDistance   ---------------------------------------\n\n";
 	Ask_value("", 110, 10000, &value, true);		// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -144,7 +144,7 @@ void gCamera_LookAroundThetaMax_write()
 	cout << "\n\n ------------------------------------------   gCamera_LookAroundThetaMax   -------------------------------------------\n\n";
 	Ask_value("", 0, 89.9, &value, true);			// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -168,7 +168,7 @@ void gCamera_LookAroundThetaMin_write()
 	cout << "\n\n ------------------------------------------   gCamera_LookAroundThetaMin   -------------------------------------------\n\n";
 	Ask_value("", -89.9, 0, &value, true);			// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -192,7 +192,7 @@ void gCamera_LookAroundRhoMax_write()
 	cout << "\n\n -------------------------------------------   gCamera_LookAroundRhoMax   --------------------------------------------\n\n";
 	Ask_value("", 0, 179.9, &value, true);			// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -216,7 +216,7 @@ void gCamera_LookAroundRhoMin_write()
 	cout << "\n\n -------------------------------------------   gCamera_LookAroundRhoMin   --------------------------------------------\n\n";
 	Ask_value("", -179.9, 0, &value, true);			// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -243,10 +243,10 @@ void gconHealthColour_write()
 	Ask_Color_value("Blue", &B, true, true);
 	Ask_Color_value("Alpha", &A, true, true);
 	string temp, tempR = "R", tempG = "G", tempB = "B", tempA = "A";
-	memcpy(&tempR, &R, 1);
-	memcpy(&tempG, &G, 1);
-	memcpy(&tempB, &B, 1);
-	memcpy(&tempA, &A, 1);
+	memcpy(&tempR[0], &R, 1);
+	memcpy(&tempG[0], &G, 1);
+	memcpy(&tempB[0], &B, 1);
+	memcpy(&tempA[0], &A, 1);
 	temp = EXEorig.substr(0, offset);
 	temp += tempR;
 	temp += tempG;
@@ -279,10 +279,10 @@ void gconDamageColour_write()
 	Ask_Color_value("Blue", &B, true, true);
 	Ask_Color_value("Alpha", &A, true, true);
 	string temp, tempR = "R", tempG = "G", tempB = "B", tempA = "A";
-	memcpy(&tempR, &R, 1);
-	memcpy(&tempG, &G, 1);
-	memcpy(&tempB, &B, 1);
-	memcpy(&tempA, &A, 1);
+	memcpy(&tempR[0], &R, 1);
+	memcpy(&tempG[0], &G, 1);
+	memcpy(&tempB[0], &B, 1);
+	memcpy(&tempA[0], &A, 1);
 	temp = EXEorig.substr(0, offset);
 	temp += tempR;
 	temp += tempG;
@@ -317,10 +317,10 @@ void invBgRGB_write()
 	if (R == 127)
 		R = 128;
 	string temp, tempR = "R", tempG = "G", tempB = "B", tempA = "A";
-	memcpy(&tempR, &R, 1);
-	memcpy(&tempG, &G, 1);
-	memcpy(&tempB, &B, 1);
-	memcpy(&tempA, &A, 1);
+	memcpy(&tempR[0], &R, 1);
+	memcpy(&tempG[0], &G, 1);
+	memcpy(&tempB[0], &B, 1);
+	memcpy(&tempA[0], &A, 1);
 	temp = EXEorig.substr(0, offset);
 	temp += tempR;
 	temp += tempG;
@@ -350,7 +350,7 @@ void crawl_targetDistance_write()
 	cout << "\n\n ----------------------------------------------   crawl_targetDistance   ---------------------------------------------\n\n";
 	Ask_value("", 250, 10000, &value, true);		// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -374,7 +374,7 @@ void stair_targetDistance_write()
 	cout << "\n\n ----------------------------------------------   stair_targetDistance   ---------------------------------------------\n\n";
 	Ask_value("", 250, 10000, &value, true);		// Richiesta input valore da parte dell'utente
 	string temp = "fill";							// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-	memcpy(&temp, &value, 4);						// Copia del valore in esadecimale dal float alla stringa
+	memcpy(&temp[0], &value, 4);						// Copia del valore in esadecimale dal float alla stringa
 	ChangeSTRINGValue(temp, offset);
 }
 
@@ -404,7 +404,7 @@ void demo_video_timeout_write()
 		Ask_value("", 5, 600, &value, true);		// Richiesta input valore da parte dell'utente
 		string temp = "fill";						// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
 		unsigned int uintvalue = (int)value * 60;
-		memcpy(&temp, &uintvalue, 4);				// Copia del valore in esadecimale dal float alla stringa
+		memcpy(&temp[0], &uintvalue, 4);				// Copia del valore in esadecimale dal float alla stringa
 		ChangeSTRINGValue(temp, Position2 + check2.size());
 	}
 }
@@ -427,7 +427,7 @@ void FOG_SetPlane_Distance_write()
 		cout << "\n\n ---------------------------------------------   FOG_SetPlane_Distance   ---------------------------------------------\n\n";
 		Ask_value("", 0, 25, &value, true);			// Richiesta input valore da parte dell'utente
 		string temp = "fill";						// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-		memcpy(&temp, &value, 4);					// Copia del valore in esadecimale dal float alla stringa
+		memcpy(&temp[0], &value, 4);					// Copia del valore in esadecimale dal float alla stringa
 		ChangeSTRINGValue(temp, offset);
 	}
 }
@@ -450,7 +450,7 @@ void fxUpdateWaterBuffer_Wave_Height_write()
 		cout << "\n\n ----------------------------------------   fxUpdateWaterBuffer_Wave_Height   ----------------------------------------\n\n";
 		Ask_value("", -0.55, -0.001, &value, true);	// Richiesta input valore da parte dell'utente
 		string temp = "fill";						// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-		memcpy(&temp, &value, 4);					// Copia del valore in esadecimale dal float alla stringa
+		memcpy(&temp[0], &value, 4);					// Copia del valore in esadecimale dal float alla stringa
 		ChangeSTRINGValue(temp, offset);
 	}
 }
@@ -473,7 +473,7 @@ void dbgMinCameraDistance_write()
 		cout << "\n\n ---------------------------------------------   dbgMinCameraDistance   ----------------------------------------------\n\n";
 		Ask_value("", 4, 20, &value, true);			// Richiesta input valore da parte dell'utente
 		string temp = "fill";						// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-		memcpy(&temp, &value, 4);					// Copia del valore in esadecimale dal float alla stringa
+		memcpy(&temp[0], &value, 4);					// Copia del valore in esadecimale dal float alla stringa
 		ChangeSTRINGValue(temp, offset);
 	}
 }
@@ -496,7 +496,7 @@ void dbgMaxCameraDistance_write()
 		cout << "\n\n ---------------------------------------------   dbgMaxCameraDistance   ----------------------------------------------\n\n";
 		Ask_value("", 80, 160, &value, true);		// Richiesta input valore da parte dell'utente
 		string temp = "fill";						// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-		memcpy(&temp, &value, 4);					// Copia del valore in esadecimale dal float alla stringa
+		memcpy(&temp[0], &value, 4);					// Copia del valore in esadecimale dal float alla stringa
 		ChangeSTRINGValue(temp, offset);
 	}
 }
@@ -520,7 +520,7 @@ void gameover_timeout_write()
 		Ask_value("", 0, 600, &value, true);		// Richiesta input valore da parte dell'utente
 		value *= 60;								// Passa da secondi a frames (1 secondo = 60 frames)
 		string temp = "fill";						// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-		memcpy(&temp, &value, 4);					// Copia del valore in esadecimale dal float alla stringa
+		memcpy(&temp[0], &value, 4);					// Copia del valore in esadecimale dal float alla stringa
 		ChangeSTRINGValue(temp, offset);
 	}
 }
@@ -544,7 +544,7 @@ void swim_targetDistance_write()
 		Ask_value("", 300, 12800, &value, true);	// Richiesta input valore da parte dell'utente
 		value /= 1280;
 		string temp = "fill";						// Viene assegnato un testo arbitrario alla string temp per inizializzare i 4 byte di memoria che accoglieranno il float
-		memcpy(&temp, &value, 4);					// Copia del valore in esadecimale dal float alla stringa
+		memcpy(&temp[0], &value, 4);					// Copia del valore in esadecimale dal float alla stringa
 		ChangeSTRINGValue(temp, offset);
 	}
 }

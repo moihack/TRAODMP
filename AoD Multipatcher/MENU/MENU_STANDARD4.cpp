@@ -24,7 +24,7 @@ int MENU_STANDARD4(int &Version, string &Short_name)
 			string CM_version2 = EXEorig.substr(EXEorig.find("########Controls Mod Master Ver:") + 54, 4);
 			float CM_version1float, CM_version2float;
 			CM_version1float = stof(CM_version1);
-			memcpy(&CM_version2float, &CM_version2, 4);
+			memcpy(&CM_version2float, CM_version2.data(), 4);
 			if (CM_version1float != CM_version2float)		// Se la versione testuale non combacia con quella in float significa che il file Š manomesso
 				Controls_Mod_ERROR_VERSION = 2;
 			else

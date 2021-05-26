@@ -11,7 +11,7 @@ void Font_Enable()
 	Pro_Fix_Class exe = Pro_Fix_Allocate_space(code1.size(), Title);
 	// Conversione offset codice assembly in stringa
 	string offset = "fill";
-	memcpy(&offset, &exe.Virtual_offset, 4);
+	memcpy(&offset[0], &exe.Virtual_offset, 4);
 	// Scrittura blocco 1 (".\Data\Effects\Font.tga")
 	ChangeSTRINGValue(code1, exe.EXE_offset);
 

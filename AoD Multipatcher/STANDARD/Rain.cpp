@@ -26,7 +26,7 @@ int Detect_Rain_status()							// Restituisce: 0 = Normal, 1 = High Density, 2 =
 	if (ver == 42)		offset = 0x6AAF4;
 	if (ver == 39)		offset = 0x69874;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&BGRA, &temp, 4);
+	memcpy(&BGRA, temp.data(), 4);
 	if (BGRA == 0x482018FF)
 		modColor = true;
 

@@ -14,23 +14,23 @@ Pro_Fix_Class Pro_Fix_Allocate_space(unsigned int nBytes, string Title)
 	unsigned int FileAlignment;							// Allineamento delle sezioni nel file EXE. Necessario per allineare l'offset del gruppo dati da aggiungere
 	unsigned int LastVirtualSize, LastVirtualPos, LastSize, LastPos, NewVirtualPos, NewSize, NewPos, NewVirtualSize;
 	string temp = EXEorig.substr(60, 4);				// Legge l'offset di inzio di NTHEADER
-	memcpy(&offset, &temp, 4);
+	memcpy(&offset, temp.data(), 4);
 	temp = EXEorig.substr(offset + 6, 2);				// NUMBEROFSECTIONS: legge il numero di sezioni contenute nell'EXE
-	memcpy(&NumberOfSections, &temp, 2);
+	memcpy(&NumberOfSections, temp.data(), 2);
 	temp = EXEorig.substr(offset + 52, 4);				// IMAGEBASE: legge l'offset in RAM in cui iniziano le istruzioni
-	memcpy(&ImageBase, &temp, 4);
+	memcpy(&ImageBase, temp.data(), 4);
 	temp = EXEorig.substr(offset + 56, 4);				// SECTIONALIGNMENT: legge l'allineamento delle sezioni nella RAM
-	memcpy(&SectionAlignment, &temp, 4);
+	memcpy(&SectionAlignment, temp.data(), 4);
 	temp = EXEorig.substr(offset + 60, 4);				// FILEALIGNMENT: legge l'allineamento delle sezioni nel file EXE
-	memcpy(&FileAlignment, &temp, 4);
+	memcpy(&FileAlignment, temp.data(), 4);
 	temp = EXEorig.substr(offset + 248 + 40 * (NumberOfSections - 1) + 12, 4);
 	string temp2 = EXEorig.substr(offset + 248 + 40 * (NumberOfSections - 1) + 16, 4);
 	string temp3 = EXEorig.substr(offset + 248 + 40 * (NumberOfSections - 1) + 20, 4);
 	string temp4 = EXEorig.substr(offset + 248 + 40 * (NumberOfSections - 1) + 8, 4);
-	memcpy(&LastVirtualPos, &temp, 4);
-	memcpy(&LastSize, &temp2, 4);
-	memcpy(&LastPos, &temp3, 4);
-	memcpy(&LastVirtualSize, &temp4, 4);
+	memcpy(&LastVirtualPos, temp.data(), 4);
+	memcpy(&LastSize, temp2.data(), 4);
+	memcpy(&LastPos, temp3.data(), 4);
+	memcpy(&LastVirtualSize, temp4.data(), 4);
 
 	div_t divresult = div((int)nBytes, 16);				// Allinea a 16 bytes la dimensione del blocco di istruzioni
 	if (divresult.rem != 0)
@@ -55,19 +55,19 @@ Pro_Fix_Class Pro_Fix_Allocate_space(unsigned int nBytes, string Title)
 
 		// AGGIORNA SIZEOFIMAGE
 		temp = EXEorig.substr(offset + 80, 4);
-		memcpy(&SizeOfImage, &temp, 4);
+		memcpy(&SizeOfImage, temp.data(), 4);
 		SizeOfImage += NewVirtualSize;
 		temp = EXEorig.substr(0, offset + 80);
 		string temp5 = "fill";
-		memcpy(&temp5, &SizeOfImage, 4);
+		memcpy(&temp5[0], &SizeOfImage, 4);
 		temp += temp5;
 		temp += EXEorig.substr(offset + 84, string::npos);
 		EXEorig = temp;
 
 		// AGGIORNA NUMBEROFSECTIONS
-		unsigned short temp4 = NumberOfSections + 1;
+		unsigned short us_temp4 = NumberOfSections + 1;
 		string temp6 = "fi";
-		memcpy(&temp6, &temp4, 2);
+		memcpy(&temp6[0], &us_temp4, 2);
 		temp = EXEorig.substr(0, offset + 6);
 		temp += temp6;
 		temp += EXEorig.substr(offset + 8, string::npos);
@@ -93,10 +93,10 @@ Pro_Fix_Class Pro_Fix_Allocate_space(unsigned int nBytes, string Title)
 			NewVirtualPos = (divresult2.quot + 1) * SectionAlignment;
 		NewSize = nBytes + 64 + 80;
 		string temp7 = "fill", temp8 = "fill", temp9 = "fill", temp10 = "fill";
-		memcpy(&temp7, &NewVirtualPos, 4);
-		memcpy(&temp8, &NewSize, 4);
-		memcpy(&temp9, &NewPos, 4);
-		memcpy(&temp10, &NewVirtualSize, 4);
+		memcpy(&temp7[0], &NewVirtualPos, 4);
+		memcpy(&temp8[0], &NewSize, 4);
+		memcpy(&temp9[0], &NewPos, 4);
+		memcpy(&temp10[0], &NewVirtualSize, 4);
 		string header = "\x2E\x54\x52\x41\x4F\x44\x4D\x50";		header += temp10;		header += temp7;			header += temp8;			header += temp9;
 		header.push_back('\0');		header.push_back('\0');		header.push_back('\0');		header.push_back('\0');		header.push_back('\0');		header.push_back('\0');
 		header.push_back('\0');		header.push_back('\0');		header.push_back('\0');		header.push_back('\0');		header.push_back('\0');		header.push_back('\0');
@@ -126,11 +126,11 @@ Pro_Fix_Class Pro_Fix_Allocate_space(unsigned int nBytes, string Title)
 
 		// AGGIORNA SIZEOFIMAGE
 		temp = EXEorig.substr(offset + 80, 4);
-		memcpy(&SizeOfImage, &temp, 4);
+		memcpy(&SizeOfImage, temp.data(), 4);
 		SizeOfImage += NewVirtualSize;
 		temp = EXEorig.substr(0, offset + 80);
 		string temp5 = "fill";
-		memcpy(&temp5, &SizeOfImage, 4);
+		memcpy(&temp5[0], &SizeOfImage, 4);
 		temp += temp5;
 		temp += EXEorig.substr(offset + 84, string::npos);
 		EXEorig = temp;
@@ -139,8 +139,8 @@ Pro_Fix_Class Pro_Fix_Allocate_space(unsigned int nBytes, string Title)
 		NewVirtualSize += LastVirtualSize;
 		NewSize = LastSize + nBytes + 64;
 		string temp10 = "fill", temp11 = "fill";
-		memcpy(&temp10, &NewVirtualSize, 4);
-		memcpy(&temp11, &NewSize, 4);
+		memcpy(&temp10[0], &NewVirtualSize, 4);
+		memcpy(&temp11[0], &NewSize, 4);
 		temp = EXEorig.substr(0, offset + 248 + 40 * (NumberOfSections - 1) + 8);
 		temp += temp10;
 		temp += EXEorig.substr(offset + 248 + 40 * (NumberOfSections - 1) + 12, 4);

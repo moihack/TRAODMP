@@ -25,7 +25,7 @@ int Detect_Snow_velocity_status()					// Ritorna 0=normale, 1=low
 		float value;
 		string temp;
 		temp = EXEorig.substr(offset, 4);
-		memcpy(&value, &temp, 4);
+		memcpy(&value, temp.data(), 4);
 		if (value == -16)
 			return 0;
 		return 1;
@@ -69,7 +69,7 @@ void Change_Snow_velocity_status()
 	{
 		float value;
 		temp = EXEorig.substr(offset, 4);
-		memcpy(&value, &temp, 4);
+		memcpy(&value, temp.data(), 4);
 		if (value == -16)
 		{
 			temp = EXEorig.substr(0, offset);

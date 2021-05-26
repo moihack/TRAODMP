@@ -16,14 +16,14 @@ void Pro_Fix_Deallocate_space()
 
 	// Memorizza LastSectionVirtualSize e aggiorna il numero di sezioni del file (ne sottrae una)
 	temp = EXEorig.substr(60, 4);						// Legge l'offset di inzio di NTHEADER
-	memcpy(&offset, &temp, 4);
+	memcpy(&offset, temp.data(), 4);
 	temp = EXEorig.substr(offset + 6, 2);				// NUMBEROFSECTIONS: legge il numero di sezioni contenute nell'EXE
-	memcpy(&NumberOfSections, &temp, 2);
+	memcpy(&NumberOfSections, temp.data(), 2);
 	NumberOfSections--;
 	temp = EXEorig.substr(offset + 248 + 40 * NumberOfSections + 8, 4);
-	memcpy(&LastSectionVirtualSize, &temp, 4);
+	memcpy(&LastSectionVirtualSize, temp.data(), 4);
 	temp2 = "fi";
-	memcpy(&temp2, &NumberOfSections, 2);
+	memcpy(&temp2[0], &NumberOfSections, 2);
 	temp = EXEorig.substr(0, offset + 6);
 	temp += temp2;
 	temp += EXEorig.substr(offset + 8, string::npos);
@@ -32,10 +32,10 @@ void Pro_Fix_Deallocate_space()
 	// Aggiorna SizeofImage (sottrae il VirtualSize dell'ultima sezione al valore corrente)
 
 	temp = EXEorig.substr(offset + 80, 4);
-	memcpy(&SizeOfImage, &temp, 4);
+	memcpy(&SizeOfImage, temp.data(), 4);
 	SizeOfImage -= LastSectionVirtualSize;
 	temp3 = "fill";
-	memcpy(&temp3, &SizeOfImage, 4);
+	memcpy(&temp3[0], &SizeOfImage, 4);
 	temp = EXEorig.substr(0, offset + 80);
 	temp += temp3;
 	temp += EXEorig.substr(offset + 84, string::npos);

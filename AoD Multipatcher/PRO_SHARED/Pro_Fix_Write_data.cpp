@@ -10,7 +10,7 @@ Pro_Fix_Class Pro_Fix_Write_data(Pro_Fix_Class Position_info, Pro_Fix_String &as
 	for (unsigned int i = 0; i < assembly.nData; i++)
 	{
 		string temp2 = "fill";
-		memcpy(&temp2, &assembly.Data_default_value[i], 4);
+		memcpy(&temp2[0], &assembly.Data_default_value[i], 4);
 		temp += temp2;
 	}
 	temp += EXEorig.substr(Position_info.EXE_offset + assembly.nData * 4, string::npos);

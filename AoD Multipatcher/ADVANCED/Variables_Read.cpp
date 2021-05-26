@@ -20,7 +20,7 @@ string gAnimPlayFPS_read()
 	if (ver == 42)		offset = 2233744;
 	if (ver == 39)		offset = 2163584;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -44,7 +44,7 @@ string playTriggerDamageEffectSize_read()
 	if (ver == 42)		offset = 1160683;
 	if (ver == 39)		offset = 1157675;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -68,7 +68,7 @@ string g_physics_G_read()
 	if (ver == 42)		offset = 1335643;
 	if (ver == 39)		offset = 1334491;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -92,7 +92,7 @@ string gcamMaximumCameraDistance_read()
 	if (ver == 42)		offset = 2642768;
 	if (ver == 39)		offset = 2567888;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -116,7 +116,7 @@ string gCamera_CornerShoot_ViewDistance_read()
 	if (ver == 42)		offset = 2642732;
 	if (ver == 39)		offset = 2567852;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -140,7 +140,7 @@ string gCamera_LookAroundThetaMax_read()
 	if (ver == 42)		offset = 2237732;
 	if (ver == 39)		offset = 2167596;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -164,7 +164,7 @@ string gCamera_LookAroundThetaMin_read()
 	if (ver == 42)		offset = 2237736;
 	if (ver == 39)		offset = 2167600;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -188,7 +188,7 @@ string gCamera_LookAroundRhoMax_read()
 	if (ver == 42)		offset = 2237740;
 	if (ver == 39)		offset = 2167604;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -212,7 +212,7 @@ string gCamera_LookAroundRhoMin_read()
 	if (ver == 42)		offset = 2237744;
 	if (ver == 39)		offset = 2167608;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -237,10 +237,10 @@ void gconHealthColour_read(int *R, int *G, int *B, int *A)
 	string Gtemp = EXEorig.substr(offset+1, 1);
 	string Btemp = EXEorig.substr(offset+2, 1);
 	string Atemp = EXEorig.substr(offset+3, 1);
-	memcpy(R, &Rtemp, 1);
-	memcpy(G, &Gtemp, 1);
-	memcpy(B, &Btemp, 1);
-	memcpy(A, &Atemp, 1);
+	memcpy(R, Rtemp.data(), 1);
+	memcpy(G, Gtemp.data(), 1);
+	memcpy(B, Btemp.data(), 1);
+	memcpy(A, Atemp.data(), 1);
 }
 
 
@@ -263,10 +263,10 @@ void gconDamageColour_read(int *R, int *G, int *B, int *A)
 	string Gtemp = EXEorig.substr(offset+1, 1);
 	string Btemp = EXEorig.substr(offset+2, 1);
 	string Atemp = EXEorig.substr(offset+3, 1);
-	memcpy(R, &Rtemp, 1);
-	memcpy(G, &Gtemp, 1);
-	memcpy(B, &Btemp, 1);
-	memcpy(A, &Atemp, 1);
+	memcpy(R, Rtemp.data(), 1);
+	memcpy(G, Gtemp.data(), 1);
+	memcpy(B, Btemp.data(), 1);
+	memcpy(A, Atemp.data(), 1);
 }
 
 
@@ -289,10 +289,10 @@ void invBgRGB_read(int *R, int *G, int *B, int *A)
 	string Gtemp = EXEorig.substr(offset+1, 1);
 	string Btemp = EXEorig.substr(offset+2, 1);
 	string Atemp = EXEorig.substr(offset+3, 1);
-	memcpy(R, &Rtemp, 1);
-	memcpy(G, &Gtemp, 1);
-	memcpy(B, &Btemp, 1);
-	memcpy(A, &Atemp, 1);
+	memcpy(R, Rtemp.data(), 1);
+	memcpy(G, Gtemp.data(), 1);
+	memcpy(B, Btemp.data(), 1);
+	memcpy(A, Atemp.data(), 1);
 	if (*R == 128)
 		*R = 127;
 }
@@ -316,7 +316,7 @@ string crawl_targetDistance_read()
 	if (ver == 42)		offset = 1110140;
 	if (ver == 39)		offset = 1106412;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -340,7 +340,7 @@ string stair_targetDistance_read()
 	if (ver == 42)		offset = 1110083;
 	if (ver == 39)		offset = 1106355;
 	string temp = EXEorig.substr(offset, 4);
-	memcpy(&out, &temp, 4);
+	memcpy(&out, temp.data(), 4);
 	temp2 << out;
 	return Center_string2(temp2.str(), 12);
 }
@@ -369,7 +369,7 @@ string demo_video_timeout_read()
 	if ((Position1 = EXEorig.find(check1)) != std::string::npos && (Position2 = EXEorig.find(check2)) != std::string::npos)
 	{
 		string temp = EXEorig.substr(Position2 + check2.size(), 4);
-		memcpy(&out, &temp, 4);
+		memcpy(&out, temp.data(), 4);
 		temp2 << out / 60;
 		return Center_string2(temp2.str(), 12);
 	}
@@ -394,7 +394,7 @@ string FOG_SetPlane_Distance_read()
 	if (ver != 39 && ver != 42 && ver != 49 && ver != 52)
 	{
 		string temp = EXEorig.substr(offset, 4);
-		memcpy(&out, &temp, 4);
+		memcpy(&out, temp.data(), 4);
 		temp2 << out;
 		return Center_string2(temp2.str(), 12);
 	}
@@ -419,7 +419,7 @@ string fxUpdateWaterBuffer_Wave_Height_read()
 	if (ver != 39 && ver != 42 && ver != 49 && ver != 52)
 	{
 		string temp = EXEorig.substr(offset, 4);
-		memcpy(&out, &temp, 4);
+		memcpy(&out, temp.data(), 4);
 		temp2 << out;
 		return Center_string2(temp2.str(), 12);
 	}
@@ -444,7 +444,7 @@ string dbgMinCameraDistance_read()
 	if (ver != 39 && ver != 42 && ver != 49 && ver != 52)
 	{
 		string temp = EXEorig.substr(offset, 4);
-		memcpy(&out, &temp, 4);
+		memcpy(&out, temp.data(), 4);
 		temp2 << out;
 		return Center_string2(temp2.str(), 12);
 	}
@@ -469,7 +469,7 @@ string dbgMaxCameraDistance_read()
 	if (ver != 39 && ver != 42 && ver != 49 && ver != 52)
 	{
 		string temp = EXEorig.substr(offset, 4);
-		memcpy(&out, &temp, 4);
+		memcpy(&out, temp.data(), 4);
 		temp2 << out;
 		return Center_string2(temp2.str(), 12);
 	}
@@ -494,7 +494,7 @@ string gameover_timeout_read()
 	if (ver != 39 && ver != 42 && ver != 49 && ver != 52)
 	{
 		string temp = EXEorig.substr(offset, 4);
-		memcpy(&out, &temp, 4);
+		memcpy(&out, temp.data(), 4);
 		temp2 << out/60;
 		return Center_string2(temp2.str(), 12);
 	}
@@ -519,7 +519,7 @@ string swim_targetDistance_read()
 	if (ver != 39 && ver != 42 && ver != 49 && ver != 52)
 	{
 		string temp = EXEorig.substr(offset, 4);
-		memcpy(&out, &temp, 4);
+		memcpy(&out, temp.data(), 4);
 		temp2 << out*1280;
 		return Center_string2(temp2.str(), 12);
 	}

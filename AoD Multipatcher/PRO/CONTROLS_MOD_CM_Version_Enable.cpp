@@ -10,7 +10,7 @@ void CM_Version_Enable()
 	Title += "##################";
 	float ver_float = stof(CONTROLSMODVERSION);
 	string code1 = "fill";
-	memcpy(&code1, &ver_float, 4);
+	memcpy(&code1[0], &ver_float, 4);
 	// Allocazione spazio per codice assembly
 	Pro_Fix_Class exe = Pro_Fix_Allocate_space(code1.size(), Title);
 	// Scrittura blocco 1

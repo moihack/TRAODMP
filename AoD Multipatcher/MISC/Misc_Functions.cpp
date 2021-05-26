@@ -179,7 +179,7 @@ void Ask_value(string name, double min, double max, float *value, bool EnableDef
 void ChangeWORDValue(unsigned short Value, size_t Offset)
 {
 	string Value_string = "fi";
-	memcpy(&Value_string, &Value, 2);
+	memcpy(&Value_string[0], &Value, 2);
 	string temp = EXEorig.substr(0, Offset);
 	temp += Value_string;
 	temp += EXEorig.substr(Offset + 2, string::npos);
@@ -190,7 +190,7 @@ void ChangeWORDValue(unsigned short Value, size_t Offset)
 void ChangeDWORDValue(unsigned int Value, size_t Offset)
 {
 	string Value_string = "fill";
-	memcpy(&Value_string, &Value, 4);
+	memcpy(&Value_string[0], &Value, 4);
 	string temp = EXEorig.substr(0, Offset);
 	temp += Value_string;
 	temp += EXEorig.substr(Offset + 4, string::npos);
@@ -201,7 +201,7 @@ void ChangeDWORDValue(unsigned int Value, size_t Offset)
 void ChangeQWORDValue(unsigned long long Value, size_t Offset)
 {
 	string Value_string = "fillfill";
-	memcpy(&Value_string, &Value, 8);
+	memcpy(&Value_string[0], &Value, 8);
 	string temp = EXEorig.substr(0, Offset);
 	temp += Value_string;
 	temp += EXEorig.substr(Offset + 8, string::npos);

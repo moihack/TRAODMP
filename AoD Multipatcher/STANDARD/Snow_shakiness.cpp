@@ -20,7 +20,7 @@ int Detect_Snow_shakiness_status()					// Ritorna 0=normale, 1=low
 	if (ver == 42)		offset1 = 451069;
 	if (ver == 39)		offset1 = 446397;
 	temp = EXEorig.substr(offset1, 4);
-	memcpy(&value, &temp, 4);
+	memcpy(&value, temp.data(), 4);
 	if (value == 8)
 		return 0;
 	return 1;
@@ -46,7 +46,7 @@ void Change_Snow_shakiness_status()
 	if (ver == 39)	{		offset1 = 446397;		offset2 = 446410;	}
 
 	temp = EXEorig.substr(offset1, 4);
-	memcpy(&value, &temp, 4);
+	memcpy(&value, temp.data(), 4);
 	if (value == 8)					// Se il valore è normale si sostituisce 8 con 2
 	{
 		temp = EXEorig.substr(0, offset1);
